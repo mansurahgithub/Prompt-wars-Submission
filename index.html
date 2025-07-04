@@ -1,0 +1,106 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login2.css">
+    <title>Login/Register Popup</title>
+</head>
+<body>
+    <?php if (isset($_SESSION['error'])): ?>
+        <p class="error"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['success'])): ?>
+    <p class="success"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></p>
+<?php endif; ?>
+
+    <!-- Main Content -->
+    <a href="javascript:void(0);" onclick="openPopup()" class="user-icon">
+        <img src="user.png" alt="User Icon" />
+    </a>
+  
+    <h1 class="heading">FoodBridge</h1>
+    <p class="tagline">Connecting Plates, Saving Lives❤️</p>
+    <div class="button-container">
+        <button id="donateButton" onclick="window.location.href='form.html'">Donate</button>
+    </div>
+    
+    <!-- Overlay Background -->
+    <div class="overlay" id="overlay"></div>
+    <!-- Popup Container -->
+    <div class="popup-container" id="popupContainer">
+        <button class="close" id="closePopup" onclick="closePopup()">&times;</button>
+        <div class="popup-content">
+            <p class="come">Come on in!</p>
+            <div class="form-container">
+          <!-- Sign In Form -->
+<div class="second-b" id="signInForm">
+    <form id="signInFormElement" action="signin.php" method="POST">
+        <div class="email">
+            <label>Email address</label>
+            <input type="email" name="email" placeholder="you@example.com" required>
+        </div>
+        
+        <div class="password">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="••••••••" required>
+        </div>
+
+        
+        <button type="button" class="forgot-password">Forgot password?</button>
+        <button type="submit" class="sign">Sign In</button>
+        
+    </form>
+    
+    <div class="alternative-login">
+        <p class="or">OR</p>
+        <button type="button">Continue with Google</button>
+        <button type="button">Continue with Facebook</button>
+        <button type="button">Continue with Apple</button>
+    </div>
+    
+    <div class="register-link">
+        <p>New here? <a href="javascript:void(0);" onclick="showRegister()">Register Now</a></p>
+    </div>
+</div>
+
+<!-- Register Form -->
+<div class="second-b" id="registerForm" style="display:none;">
+    <form id="registerFormElement" action="r.php" method="POST">
+        <div class="user_name">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="John Doe" required>
+        </div>
+        <div class="contactnumber">
+            <label>Contact Number</label>
+            <input type="text" name="contact" placeholder="1234567890" required>
+        </div>
+    
+        <div class="email">
+            <label>Email address</label>
+            <input type="email" name="email" id="registerEmail" placeholder="you@example.com" required>
+        </div>
+    
+        <div class="password">
+            <label>Password</label>
+            <input type="password" id="registerPassword" name="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit">Register</button>
+        
+    </form>
+
+
+    <div class="register-link">
+        <p>Already have an account? <a href="javascript:void(0);" onclick="showSignIn()">Sign In</a></p>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+   
+
+    <script src="index.js"></script>
+</body>
+</html>

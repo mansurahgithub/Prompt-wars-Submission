@@ -1,0 +1,22 @@
+@import url('hello.css');
+
+/* Override or add homepage-specific styles here */
+.user-icon-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 160px;
+  z-index: 20;
+}
+
+.dropdown-menu a {
+  padding: 12px;
+  display: block;
+}
